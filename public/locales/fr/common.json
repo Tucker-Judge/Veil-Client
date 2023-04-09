@@ -1,8 +1,7 @@
 {
-        "navbar": {
-            "title": "Voile",
-            "myLanguages": "Mes langues",
-            "newLanguages": "Nouvelles langues",
-            "login": "Se connecter"
-        }
-    }
+    "title": "Voile",
+    "myLanguages": "Mes langues",
+    "newLanguages": "Nouvelles langues",
+    "login": "Se connecter"
+}
+    
