@@ -4,7 +4,47 @@
         "description": "Talk about exclusive! The unclassified Busuu language is spoken in the Southern Bantoid of Cameroon – but only by eight people. In fact, when they checked in 1986, there were eight Busuu speakers and in 2005, only three, making it an endangered language."
     },
     {
-        "sentence": "placeholder",
-        "description": "Placeholder"
+        "sentence": "There's a language with only two native speakers left",
+        "description": "Ayer's Rock, also known as Uluru, is a large sandstone rock formation in central Australia. It is considered a sacred site by the local Anangu people, who believe it was created by ancestral beings during the Dreamtime."
+    },
+    {
+        "sentence": "A language with no words for numbers",
+        "description": "The Pirahã language, spoken by a small indigenous group in Brazil, has no words for specific numbers. Instead, they use terms that roughly translate to 'few' and 'many' to describe quantities."
+    },
+    {
+        "sentence": "Silbo Gomero is a whistled language",
+        "description": "Spoken on the Canary Island of La Gomera, Silbo Gomero is a unique language that uses whistling to communicate over long distances. It was developed to facilitate communication across the island's difficult terrain."
+    },
+    {
+        "sentence": "A constructed language with a focus on logic",
+        "description": "Lojban is an artificial language created in the late 20th century with the goal of being more logical and precise than natural languages. It is designed to be culturally neutral and to facilitate clear communication between speakers."
+    },   
+    {
+        "sentence": "A language that uses clicking sounds",
+        "description": "Khoisan languages, spoken in parts of southern Africa, are characterized by their use of click consonants. These languages are considered some of the most ancient and diverse in the world."
+    }, 
+    {
+        "sentence": "Sign language is not universal",
+        "description": "Contrary to popular belief, there is no single universal sign language. Instead, there are hundreds of different sign languages around the world, each with its own unique vocabulary and grammar."
+    },
+    {
+        "sentence": "A language spoken by only one village",
+        "description": "Sikaiana, a Polynesian language, is spoken exclusively by the inhabitants of Sikaiana Atoll, a small coral atoll in the Solomon Islands. The language is at risk of disappearing as younger generations shift to using Solomon Islands Pijin or English."
+    }, 
+    {
+        "sentence": "The most linguistically diverse country",
+        "description": "Papua New Guinea holds the title for the most linguistically diverse country, with over 800 languages spoken within its borders. This accounts for around 12% of the world's languages."
+    },
+    {
+        "sentence": "The world's most difficult language to learn",
+        "description": "Many people consider the Toda language, spoken by the Toda people of the Nilgiri Hills in India, to be one of the most difficult languages to learn. Its complex phonetics, grammar, and extensive use of consonant clusters present challenges for learners."
+    },
+    {
+        "sentence": "A language with a single native speaker",
+        "description": "As of 2021, the Yuchi language, spoken by the Yuchi people in Oklahoma, had only one fluent native speaker remaining. Efforts are underway to preserve and revitalize the language through documentation and language education programs."
     }
+        
+        
+        
+        
 ]

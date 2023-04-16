@@ -1,30 +1,36 @@
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next';
-
+import styles from './Navbar.module.css'
+import Image from 'next/image'
 const Navbar = () => {
   const { t } = useTranslation('navbar')
   // console.log(t)
   return (
-    <div className="navbar">
-      <div className="nav-logo">
+    <div className={styles.navbar}>
+      <div className={styles.nav_logo}>
         <Link href="/">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJYctcCNdEo8tPvMXckYVI7kehiKtMd6sBRQ&usqp=CAU" />
+          <Image
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJYctcCNdEo8tPvMXckYVI7kehiKtMd6sBRQ&usqp=CAU"
+            alt="Earth-logo"
+            width={40}
+            height={40}
+          />
         </Link>
       </div>
-      <div className="nav-name">
+      <div className={styles.nav_name}>
         <h1>{t('title')}</h1>
       </div>
-      <div className="nav-courses">
+      <div className={styles.nav_courses}>
         <Link href="/languages">
           <p>{t('myLanguages')}</p>
         </Link>
       </div>
-      <div className="nav-home">
+      <div className={styles.nav_home}>
         <Link href="/addlanguages">
           <p>{t('newLanguages')}</p>
         </Link>
       </div>
-      <div className="login">
+      <div className={styles.login}>
         <Link href="/Login">
           <p>{t('login')}</p>
         </Link>

@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #646464;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    width: 70%;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .input label {
+    margin-bottom: 5px;
+  }
+  
+  .input input[type="email"] {
+    width: 30%;
+  }
+  
+  .input input[type="password"],
+.input input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 40px; /* Adjust this value based on the width of the showHideButton */
+  overflow-x: auto;
+}
+  .inputContainer {
+    position: relative;
+    display: inline-flex;
+    width: 28%;
+    align-items: center;
+  }
+  
+  .showHideButton {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+  }
+  
+  .button {
+    margin-top: 10px;
+  }
+  
+  .error {
+    color: red;
+    margin-top: 10px;
+  }
+  
+  .facts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-top: 2rem;
+  min-height: 200px;
+  width: 50%;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+  
+  .facts p {
+    margin-bottom: 10px;
+  }
+  
+  .checkboxInput {
+    display: flex;
+    align-items: center;
+  }
+  
+  @media (max-width: 768px) {
+    .form,
+    .facts {
+      width: 90%;
+    }
+  }
+  

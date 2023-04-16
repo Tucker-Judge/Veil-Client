@@ -1,0 +1,57 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+
+/* Navbar.module.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #1d1d1d;
+  }
+  
+  .nav-logo img {
+    width: 60px;
+    height: auto;
+    cursor: pointer;
+  }
+  
+  .nav-name h1 {
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .nav-courses,
+  .nav-home,
+  .login {
+    padding: 0 10px;
+  }
+  
+  .nav-courses p,
+  .nav-home p,
+  .login p {
+    color: #ffffff;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .nav-courses p:hover,
+  .nav-home p:hover,
+  .login p:hover {
+    text-decoration: underline;
+  }
+  
