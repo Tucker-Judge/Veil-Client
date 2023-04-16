@@ -1,6 +1,6 @@
 
 // import '../styles/globals.css';
-// import { appWithTranslation } from 'next-i18next';
+import { appWithTranslation } from 'next-i18next';
 import Layout from '../components/Layout'
 function App({ Component, pageProps }) {
 
@@ -12,7 +12,7 @@ function App({ Component, pageProps }) {
   );
 }
 
-export default App;;
+export default appWithTranslation(App);
 
 
 

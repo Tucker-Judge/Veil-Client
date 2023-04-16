@@ -1,9 +1,11 @@
+
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from './Login.module.css';
+import { useTranslation } from 'next-i18next';
 
-function LoginPage({ facts, random }) {
+function LoginPage({ facts, random}) {
   const router = useRouter();
 
   const [email, setEmail] = useState('');
@@ -13,13 +15,13 @@ function LoginPage({ facts, random }) {
   const [user, setUser] = useState([]);
   const [currentFact, setCurrentFact] = useState(null);
   const [passwordType, setPasswordType] = useState('password');
-
+ 
+  const { t } = useTranslation('login')
   // render random fact every 7 seconds
   useEffect(() => {
     setInterval(() => {
       setCurrentFact(Math.floor(Math.random() * facts.length));
     }, 10000);
-
   }, []);
 
   const handleLogin = async (event) => {
@@ -55,7 +57,7 @@ function LoginPage({ facts, random }) {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.input}>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">{t('Email')}:</label>
           <input
             id="email"
             type="email"
@@ -64,7 +66,7 @@ function LoginPage({ facts, random }) {
           />
         </div>
         <div className={styles.input}>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">{t("Password")}:</label>
           <div className={styles.inputContainer}>
             <input
               id="password"
@@ -80,10 +82,10 @@ function LoginPage({ facts, random }) {
               {passwordType === 'password' ? 'Show' : 'Hide'}
             </button>
           </div>
-          <p><a>Forgot your password?</a></p>
+          <p><a>{t("ForgotPassword")}</a></p>
         </div>
         <div className={styles.checkboxInput}>
-          <label htmlFor="remember-me">Remember me:</label>
+          <label htmlFor="remember-me">{t("RememberMe")}:</label>
           <input
             id="remember-me"
             type="checkbox"
@@ -92,14 +94,14 @@ function LoginPage({ facts, random }) {
           />
         </div>
         <button className={styles.button} type="submit">
-          Login
+          {t('Login')}
         </button>
         {errorMessage && (
           <p className={styles.error}>{errorMessage}</p>
         )}
       </form>
       <div className={styles.facts}>
-        <p>Fun Facts</p>
+        <p>{t("FunFacts")}</p>
         {currentFact ? (
           <>
             <p>{facts[currentFact].sentence}</p>
@@ -118,14 +120,35 @@ function LoginPage({ facts, random }) {
 
 export default LoginPage;
 
-export async function getStaticProps() {
-  const res = await fetch('http://localhost:3002/languageFacts.json');
-  const facts = await res.json();
-  let random = Math.floor(Math.random() *facts.length)
+import fs from 'fs';
+import path from 'path';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
+export async function getServerSideProps({ req }) {
+  // Extract the Accept-Language header from the request object
+  const acceptLanguageHeader = req.headers['accept-language'];
+
+  // Define a function to parse the header and get the preferred language
+  const getPreferredLanguage = (header) => {
+    const languages = header.split(',').map((lang) => lang.split(';')[0]);
+    return languages[0];
+  };
+  
+  // Get the preferred language
+  const preferredLanguage = getPreferredLanguage(acceptLanguageHeader).slice(0, 2);
+
+  // Read the JSON file from the public folder
+  const filePath = path.join(process.cwd(), 'public', 'locales', preferredLanguage, 'facts.json');
+  const fileContents = fs.readFileSync(filePath, 'utf8');
+  const facts = JSON.parse(fileContents);
+
+  let random = Math.floor(Math.random() * facts.length);
+
   return {
     props: {
       facts,
-      random
-    },
+      random,
+      ...(await serverSideTranslations(preferredLanguage, ['navbar', 'login', 'facts'])),
+    }
   };
 }

@@ -1,0 +1,30 @@
+[
+    {
+        "sentence": "Il existe une langue que seules 8 personnes parlent",
+        "description": "Parlez d'exclusivité ! La langue Busuu non classifiée est parlée dans la région du Bantoid du Sud au Cameroun, mais seulement par huit personnes. En fait, lorsqu'ils ont vérifié en 1986, il y avait huit locuteurs de Busuu et en 2005, seulement trois, ce qui en fait une langue en voie de disparition."
+    },
+    {
+        "sentence": "Il existe une langue avec seulement deux locuteurs natifs restants",
+        "description": "Ayer's Rock, également connu sous le nom d'Uluru, est une grande formation rocheuse de grès située dans le centre de l'Australie. Il est considéré comme un site sacré par les Anangu locaux, qui croient qu'il a été créé par des êtres ancestraux pendant le Temps du Rêve."
+    },
+    {
+        "sentence": "Une langue sans mots pour les nombres",
+        "description": "La langue Pirahã, parlée par un petit groupe indigène au Brésil, n'a pas de mots pour des nombres spécifiques. Au lieu de cela, ils utilisent des termes qui se traduisent approximativement par 'peu' et 'beaucoup' pour décrire les quantités."
+    },
+    {
+        "sentence": "Le Silbo Gomero est une langue sifflée",
+        "description": "Parlée sur l'île de La Gomera aux Canaries, le Silbo Gomero est une langue unique qui utilise le sifflement pour communiquer sur de longues distances. Elle a été développée pour faciliter la communication sur le terrain difficile de l'île."
+    },
+    {
+        "sentence": "Une langue construite axée sur la logique",
+        "description": "Le lojban est une langue artificielle créée à la fin du 20e siècle dans le but d'être plus logique et précise que les langues naturelles. Elle est conçue pour être culturellement neutre et pour faciliter la communication claire entre les locuteurs."
+    },   
+    {
+        "sentence": "Une langue qui utilise des sons de clic",
+        "description": "Les langues khoïsan, parlées dans certaines régions de l'Afrique australe, se caractérisent par leur utilisation de consonnes à clic. Ces langues sont considérées comme étant parmi les plus anciennes et les plus diverses au monde."
+    }, 
+    {
+        "sentence": "La langue des signes n'est pas universelle",
+        "description": "Contrairement à ce que l'on pense, il n'existe pas de langue des signes universelle. Au lieu de cela, il existe des centaines de langues des signes différentes dans le monde, chacune ayant son propre vocabulaire et sa propre grammaire."
+    }
+]

@@ -1,8 +1,10 @@
 
   {
+    "navbar":  {
       "title": "Veil",
       "myLanguages": "My languages",
       "newLanguages": "New Languages",
       "login": "Login"
+    }
   }
   

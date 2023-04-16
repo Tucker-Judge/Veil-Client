@@ -111,16 +111,25 @@ function handleType(stateName){
 
 export default Signup
 
-
-function convertBrowserLanguageToName(langCode) {
-  const firstTwo = langCode.toFixed(2);
-  const languageMapping = {
-    'en': 'English',
-    'es': 'Spanish',
-    'fr': 'French',
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { locale: 'en' } },
+      { params: { locale: 'de' } },
+      { params: { locale: 'fr' } },
+    ],
+    fallback: false,
   };
-
-  return languageMapping[firstTwo] || 'Unknown language';
 }
+// function convertBrowserLanguageToName(langCode) {
+//   const firstTwo = langCode.toFixed(2);
+//   const languageMapping = {
+//     'en': 'English',
+//     'es': 'Spanish',
+//     'fr': 'French',
+//   };
 
-// automatically put the browser language in input form
+//   return languageMapping[firstTwo] || 'Unknown language';
+// }
+
+// // automatically put the browser language in input form
