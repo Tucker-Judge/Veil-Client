@@ -1,77 +1,107 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios'
-import redis from 'redis'
+
 function Signup() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [email, setEmail] = useState('');
-  const [language, setLanguage] = useState('');
+  // get primary language
+  const [browserLanguage, setBrowserLanguage] = useState(navigator.language.slice(0,2) || 'en')
+  const [type, setType] = useState('password')
+  const [confirmType, setConfirmType] = useState('password')
+  // useEffect(()=> {
+  //   setBrowserLanguage(navigator.language.slice(0,2) || 'en')
+  //   console.log(navigator.language)
+  // },[])
 
-  const redisClient = redis.createClient({
-    host: 'localhost',
-    port: 6379
-  }); 
-  const handleSubmit = (event) => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: '',
+    passwordConfirmation: '',
+    email: '',
+    language: browserLanguage,
+  });
+  
+  // handle form data changes
+  const handleChange =(event) => {
+    const {name,value} = event.target
+    setFormData((prevState)=> ({
+      ...prevState,
+      [name]: value
+  }))
+  }
+
+  // post user
+  const handleSubmit = async(event) => {
     event.preventDefault();
-    // handle form submission here
-    // post the user and then display a confirmation page until 
-    // redis asynchronously tells them they are confirmed
-    // then show login page
-    // Display a message based on whether the email address has been confirmed
-    const redisKey = `user:${response.data.userId}:confirmation_token`;
-    redisClient.get(redisKey, (error, confirmationToken) => {
-      if (error) {
-        setMessage('Error checking confirmation status');
-      } else if (confirmationToken) {
-        setMessage('Your email address has been confirmed. Please log in.');
-      } else {
-        setMessage('Please check your email to confirm your email address.');
-      }
-    });
-  };
+    try {
+      const response = await axios.post('http://localhost:3000/signup', formData)
+      console.log(response.data)
+    }
+    catch (err) {
+    console.error(err)
+    }
+  }
 
+// handle show password
+function handleType(stateName){
+  if (stateName === 'password') {
+    setType((prevType) => prevType === 'password' ? 'text' : 'password')
+  }
+  else if (stateName === 'passwordConfirmation') {
+    setConfirmType((prevType) => prevType === 'password' ? 'text' : 'password')
+  }
+}
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Username:
         <input
           type="text"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
+          name="username"
+          value={formData.username}
+          onChange={(e) => handleChange(e)}
         />
       </label>
       <label>
         Password:
         <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
+          type={type}
+          name="password"
+          value={formData.password}
+          onChange={(event) => handleChange(event)}
         />
+        <button type = "button" onClick = {() => handleType('password')}>
+          {type ? "Show" : "Hide"}
+        </button>
       </label>
       <label>
         Password Confirmation:
         <input
-          type="password"
-          value={passwordConfirmation}
-          onChange={(event) => setPasswordConfirmation(event.target.value)}
+          type={confirmType}
+          name="passwordConfirmation"
+          value={formData.passwordConfirmation}
+          onChange={handleChange}
         />
+        <button type="button" onClick = {() => handleType('passwordConfirmation')}>
+          {confirmType ? "Show" : "Hide"}
+        </button>
       </label>
       <label>
         Email:
         <input
           type="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
         />
       </label>
       <label>
         First Language:
-        <select value={language} onChange={(event) => setLanguage(event.target.value)}>
-          <option value="">-- Select a language --</option>
-          <option value="english">English</option>
-          <option value="spanish">Spanish</option>
-          <option value="french">French</option>
+        <select 
+        name = "language"
+        value={browserLanguage} 
+        onChange={handleChange}>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
         </select>
       </label>
       <button type="submit">Submit</button>
@@ -80,3 +110,17 @@ function Signup() {
 }
 
 export default Signup
+
+
+function convertBrowserLanguageToName(langCode) {
+  const firstTwo = langCode.toFixed(2);
+  const languageMapping = {
+    'en': 'English',
+    'es': 'Spanish',
+    'fr': 'French',
+  };
+
+  return languageMapping[firstTwo] || 'Unknown language';
+}
+
+// automatically put the browser language in input form

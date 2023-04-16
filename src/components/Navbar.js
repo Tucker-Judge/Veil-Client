@@ -25,7 +25,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="login">
-        <Link href="/login">
+        <Link href="/Login">
           <p>{t('login')}</p>
         </Link>
       </div>

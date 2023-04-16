@@ -2,34 +2,29 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-export default function LoginPage() {
+function LoginPage({facts}) {
   const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-
-  useEffect(() => {
-    axios.get('/api/current_user').then((response) => {
-      if (response.data.email) {
-        router.push('/protected_page');
-      }
-    });
-  }, []);
-
+  const [user, setUser] = useState([]);
+  console.log(facts)
   const handleLogin = async (event) => {
     event.preventDefault();
 
     try {
-      const response = await axios.post('/api/login', {
-        email,
-        password,
-        remember_me: rememberMe,
+      const response = await axios.post('http://localhost:3000/login', {
+        email: email,
+        password: password
+      }, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
       });
-
-      if (response.status === 200) {
-        router.push('/protected_page');
+      if (response.status === 200){
+        console.log(response.data)
       }
     } catch (error) {
       setErrorMessage('Invalid email or password');
@@ -63,5 +58,19 @@ export default function LoginPage() {
       <br />
       <button type="submit">Log in</button>
       {errorMessage && <p>{errorMessage}</p>}
+      <p>{facts[0].sentence}</p>
+      </form>
  )  
+}
+export default LoginPage
+
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:3002/languageFacts.json');
+  const facts = await res.json();
+  console.log(facts)
+  return {
+    props: {
+      facts,
+    },
+  };
 }
