@@ -1,5 +1,5 @@
 const Footer = () => {
 
-    return <p>misery</p>
+    return <p>putain</p>
 }
 export default Footer

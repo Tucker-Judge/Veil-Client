@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import styles from './Login.module.css';
 import { useTranslation } from 'next-i18next';
-
+import useAuth from '../hooks/useAuth';
 function LoginPage({ facts, random}) {
   const router = useRouter();
 
@@ -17,6 +17,8 @@ function LoginPage({ facts, random}) {
   const [passwordType, setPasswordType] = useState('password');
  
   const { t } = useTranslation('login')
+  // make context to use in Navbar as well
+  const { login, isLoggedIn } = useAuth();
   // render random fact every 7 seconds
   useEffect(() => {
     setInterval(() => {
@@ -26,24 +28,9 @@ function LoginPage({ facts, random}) {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-
     try {
-      const response = await axios.post(
-        'http://localhost:3000/login',
-        {
-          email: email,
-          password: password,
-        },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-      if (response.status === 200) {
-        // route to home user page
-        console.log(response.data);
-      }
+      await login(email, password);
+
     } catch (error) {
       setErrorMessage('Invalid email or password');
     }
@@ -52,9 +39,18 @@ function LoginPage({ facts, random}) {
   function handleType() {
     setPasswordType(passwordType === 'password' ? 'text' : 'password');
   }
-
+  function handleGoToDashboard(){
+    router.push('/')
+  }
   return (
     <div className={styles.container}>
+      {/* Login Form */}
+      {isLoggedIn ? (
+        <div>
+          <p>{t('AlreadyLoggedIn')}</p>
+          <button onClick={handleGoToDashboard}>{t('GoToDashboard')}</button>
+        </div>
+      ):(
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.input}>
           <label htmlFor="email">{t('Email')}:</label>
@@ -63,7 +59,7 @@ function LoginPage({ facts, random}) {
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-          />
+            />
         </div>
         <div className={styles.input}>
           <label htmlFor="password">{t("Password")}:</label>
@@ -73,12 +69,12 @@ function LoginPage({ facts, random}) {
               type={passwordType}
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-            />
+              />
             <button
               type="button"
               className={styles.showHideButton}
               onClick={handleType}
-            >
+              >
               {passwordType === 'password' ? 'Show' : 'Hide'}
             </button>
           </div>
@@ -91,7 +87,7 @@ function LoginPage({ facts, random}) {
             type="checkbox"
             checked={rememberMe}
             onChange={(event) => setRememberMe(event.target.checked)}
-          />
+            />
         </div>
         <button className={styles.button} type="submit">
           {t('Login')}
@@ -100,6 +96,10 @@ function LoginPage({ facts, random}) {
           <p className={styles.error}>{errorMessage}</p>
         )}
       </form>
+        )} 
+
+      {/* End of Login Form */}
+
       <div className={styles.facts}>
         <p>{t("FunFacts")}</p>
         {currentFact ? (
@@ -144,6 +144,7 @@ export async function getServerSideProps({ req }) {
 
   let random = Math.floor(Math.random() * facts.length);
 
+  
   return {
     props: {
       facts,

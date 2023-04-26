@@ -111,16 +111,7 @@ function handleType(stateName){
 
 export default Signup
 
-export async function getStaticPaths() {
-  return {
-    paths: [
-      { params: { locale: 'en' } },
-      { params: { locale: 'de' } },
-      { params: { locale: 'fr' } },
-    ],
-    fallback: false,
-  };
-}
+
 // function convertBrowserLanguageToName(langCode) {
 //   const firstTwo = langCode.toFixed(2);
 //   const languageMapping = {
