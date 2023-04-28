@@ -2,10 +2,10 @@ import Link from 'next/link'
 import { useTranslation } from 'next-i18next';
 import styles from './Navbar.module.css'
 import Image from 'next/image'
-// import useAuth from '../hooks/useAuth'
+import useAuth from '../hooks/useAuth'
 const Navbar = () => {
   const { t } = useTranslation('navbar')
-  // const { isLoggedIn } = useAuth()
+  const { isLoggedIn,logout } = useAuth()
   console.log(t)
   return (
     <div className={styles.navbar}>
@@ -33,12 +33,12 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.login}>
-        {/* {isLoggedIn ? ( */}
-        {/* <p onClick = {logout}>{t('logout')}</p>) : ( */}
+        {isLoggedIn ? (
+        <p onClick = {logout}>{t('logout')}</p>) : (
         <Link href="/Login">
           <p>{t('login')}</p>
         </Link>
-        {/* )} */}
+        )}
       </div>
     </div>
   );

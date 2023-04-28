@@ -24,7 +24,11 @@ function LoginPage({ facts, random}) {
     setInterval(() => {
       setCurrentFact(Math.floor(Math.random() * facts.length));
     }, 10000);
+    return
   }, []);
+  useEffect(()  => {
+    return
+  },[isLoggedIn])
 
   const handleLogin = async (event) => {
     event.preventDefault();

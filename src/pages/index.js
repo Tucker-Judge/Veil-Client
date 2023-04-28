@@ -18,6 +18,8 @@ const {t} = useTranslation('common')
   )
   }
 
+  
+  export default Home  
   export async function getServerSideProps(context) {
     const { req, res } = context;
     const sessionCookie = req.cookies.session;
@@ -44,5 +46,3 @@ const {t} = useTranslation('common')
       props: {},
     };
   }
-
-export default Home  

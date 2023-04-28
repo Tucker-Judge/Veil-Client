@@ -46,15 +46,30 @@ const useAuth = () => {
     }
   };
 
-  const logout = () => {
-    // Remove the tokens from cookies
-    Cookies.remove('authTokens');
-    setIsLoggedIn(false);
+  const logout = async () => {
+    try {
+      const authHeaders = getAuthHeaders();
+      if (authHeaders) {
+        await axios.delete('http://localhost:3000/auth/sign_out', {
+          headers: {
+            ...authHeaders,
+            'Content-Type': 'application/json',
+          },
+        });
+      }
+    } catch (error) {
+      console.error('Error during logout:', error);
+    } finally {
+      // Remove the tokens from cookies and set the isLoggedIn state
+      Cookies.remove('authTokens');
+      setIsLoggedIn(false);
+    }
   };
 
   const getAuthHeaders = () => {
-    const authTokens = Cookies.getJSON('authTokens');
-    if (authTokens) {
+    const authTokensStr = Cookies.get('authTokens');
+    if (authTokensStr) {
+      const authTokens = JSON.parse(authTokensStr)
       return {
         'access-token': authTokens['access-token'],
         client: authTokens.client,
