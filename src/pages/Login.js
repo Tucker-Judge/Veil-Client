@@ -12,7 +12,7 @@ function LoginPage({ facts, random}) {
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
-  const [user, setUser] = useState([]);
+  // const [user, setUser] = useState([]);
   const [currentFact, setCurrentFact] = useState(null);
   const [passwordType, setPasswordType] = useState('password');
  
@@ -30,11 +30,12 @@ function LoginPage({ facts, random}) {
     return
   },[isLoggedIn])
 
+
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
       await login(email, password);
-
+      
     } catch (error) {
       setErrorMessage('Invalid email or password');
     }

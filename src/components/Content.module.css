@@ -1,0 +1,14 @@
+.main_container {
+    text-align: right
+}
+
+.container {
+    display: flex;
+    text-align: center;
+    align-items: flex-end;
+    justify-content: flex-end
+}
+/* on click turn page */
+.container button {
+    border: border-box
+}

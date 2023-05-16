@@ -3,10 +3,17 @@ import { useTranslation } from 'next-i18next';
 import styles from './Navbar.module.css'
 import Image from 'next/image'
 import useAuth from '../hooks/useAuth'
-const Navbar = () => {
+import { useState, useEffect } from 'react'
+const Navbar = ({user}) => {
   const { t } = useTranslation('navbar')
-  const { isLoggedIn,logout } = useAuth()
+  const { isLoggedIn,logout, isAdmin} = useAuth()
+  console.log(isAdmin)
+  useEffect(() => {
+    return 
+  },[isLoggedIn, logout])
+  
   console.log(t)
+  
   return (
     <div className={styles.navbar}>
       <div className={styles.nav_logo}>
@@ -38,6 +45,13 @@ const Navbar = () => {
         <Link href="/Login">
           <p>{t('login')}</p>
         </Link>
+        )}
+      </div>
+      <div>
+        {isAdmin && isAdmin === true && (
+            <Link href="/cms">
+              <p>CMS</p>
+            </Link>
         )}
       </div>
     </div>

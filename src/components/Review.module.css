@@ -1,0 +1,30 @@
+.container {
+    border: border-box;
+    background-color: antiquewhite;
+}
+.header {
+    text-align: center;
+    padding-top: 5px;
+    margin-top: 5px;
+
+}
+.grid_reviews {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem
+}
+.reviews {
+    border-style: solid;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: .2rem;
+    max-height: 150px;
+    overflow-y: scroll;
+    background-color: rgb(168, 117, 213);
+}
+.reviews p:first-child {
+    margin-left: 2rem;
+}
+.reviews p {
+    object-fit: content-box;
+}

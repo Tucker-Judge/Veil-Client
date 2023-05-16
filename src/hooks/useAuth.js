@@ -1,15 +1,19 @@
-
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
 const useAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const storedTokens = Cookies.get('authTokens');
     if (storedTokens) {
       setIsLoggedIn(true);
+    }
+    const admin = Cookies.get('isAdmin');
+    if (admin) {
+      setIsAdmin(admin === 'true'); // Ensure that admin status is properly set
     }
   }, []);
 
@@ -39,6 +43,12 @@ const useAuth = () => {
 
         // Store the headers in cookies and set the expires property to 7 days
         Cookies.set('authTokens', JSON.stringify(headers), { expires: 7 });
+
+        // Store admin status in cookie and state
+        const adminStatus = response.data.data.is_admin;
+        Cookies.set('isAdmin', adminStatus, { expires: 7 });
+        setIsAdmin(adminStatus);
+
         setIsLoggedIn(true);
       }
     } catch (error) {
@@ -60,16 +70,18 @@ const useAuth = () => {
     } catch (error) {
       console.error('Error during logout:', error);
     } finally {
-      // Remove the tokens from cookies and set the isLoggedIn state
+      // Remove the tokens and admin status from cookies and reset the states
       Cookies.remove('authTokens');
+      Cookies.remove('isAdmin');
       setIsLoggedIn(false);
+      setIsAdmin(false);
     }
   };
 
   const getAuthHeaders = () => {
     const authTokensStr = Cookies.get('authTokens');
     if (authTokensStr) {
-      const authTokens = JSON.parse(authTokensStr)
+      const authTokens = JSON.parse(authTokensStr);
       return {
         'access-token': authTokens['access-token'],
         client: authTokens.client,
@@ -83,6 +95,7 @@ const useAuth = () => {
 
   return {
     isLoggedIn,
+    isAdmin,
     login,
     logout,
     getAuthHeaders,

@@ -4,6 +4,7 @@ function UserLanguages({languages}){
 // if one language reroute to next page
 // page styling will be ads on left and right
 // languages represented by flag images with the text over them
+console.log(languages)
     return (
         <div>
             <p>nouveau débuts</p>

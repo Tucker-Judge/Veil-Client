@@ -1,10 +1,12 @@
 
 import Navbar from './Navbar';
 import Footer from './Footer';
+import useAuth from '../hooks/useAuth'
 const Layout = ({ children }) => {
+  const { user } = useAuth()
   return (
     <div>
-      <Navbar />
+      <Navbar user = {user}/>
       <main>{children}</main>
       <Footer />
     </div>
