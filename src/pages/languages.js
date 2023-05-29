@@ -8,7 +8,7 @@ console.log(languages)
     return (
         <div>
             <p>nouveau débuts</p>
-            {languages.map((language) => {
+            {languages.length > 0 ? languages.map((language) => {
                 return (
                 <div key = {language.id}>
                     <Link href={`/language/${language.id}`}>
@@ -16,14 +16,18 @@ console.log(languages)
                     </Link>
                 </div>
                 )
-            })}
+            }): <p>uh oh looks like something went wrong</p>
+            }
         </div>
     )
 }
 export default UserLanguages
 
 export async function getServerSideProps(ctx) {
+  // moving on!!!!
+  // switch from cookies to grabbing headers from browser
     const cookies = nextCookies(ctx)
+    const { req } = ctx
    
     const authTokens = cookies.authTokens ? cookies.authTokens : {};
   
@@ -40,8 +44,11 @@ export async function getServerSideProps(ctx) {
       ...authHeaders
       }});
       const languages = await response.json()
+      // if(languages.length === 1){
+      //   // console.log(languages);
+
+      // }
     //   filter here
-      console.log(languages);
       return {
         props: {
           languages

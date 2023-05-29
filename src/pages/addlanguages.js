@@ -38,7 +38,7 @@ async function handleDelete(id) {
 
   return (
     <div className="index_container">
-      {languages.map((language) => (
+      {languages.length > 0 ? languages.map((language) => (
         <div
           onClick={() => handleClick(language.id)}
           key={language.id}
@@ -47,7 +47,8 @@ async function handleDelete(id) {
           <p>{language.language}</p>
           {language.is_currently_learning && <button>peut-etre</button>}
         </div>
-      ))}
+      )): <p>uhoh it looks like there's an error</p>
+    }
     </div>
   );
 }

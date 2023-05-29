@@ -1,0 +1,117 @@
+.body {
+  margin: 0
+}
+.navbar {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  margin: 0;
+  border:0;
+  /* padding: 0; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 5%;
+  padding: 5%, 20%;
+  background: linear-gradient(to right, #00b894, #00cec9);
+  
+}
+
+.nav_logo {
+  margin-left: 3%;
+  max-width: 50px; /* Adjust the maximum desired width */
+  max-height: 50px; /* Adjust the maximum desired height */
+  /* width: 50%; */
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #ffffff;
+  /* padding: 10px */
+}
+.nav_logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center center;
+}
+/* .nav_logo img:hover {
+  width:100%;
+  clip: rect(0px 20px)
+} */
+.login {
+  margin-left: auto;
+  margin-right: 10%;
+}
+.nav_name {
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.nav_name h1 {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  /* margin-left: 20px */
+}
+
+.nav_courses,
+.nav_home,
+.login {
+  /* width: fit-content; */
+  margin-top: 4px;
+  margin-bottom: 4px;
+  /* height: 30px; */
+  height: 50%;
+  line-height: 0;
+  padding: 0 1%;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, .5);
+  background-color: #3a89a1;
+  border-radius:8px
+  
+  /* border-style: border-box; */
+}
+.navbar a {
+  text-decoration: none;
+}
+.nav_courses, .nav_home {
+  margin:0 auto;
+}
+.nav_courses p,
+.nav_home p,
+.login p {
+  color: #ffffff;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.nav_courses:hover,
+.nav_home:hover,
+.login:hover {
+  height: 50%;
+  line-height: 0;
+}
+
+/* Styles for average phone screens (320px to 480px) */
+@media (max-width: 480px) {
+  .nav_name h1 {
+    font-size: 18px;
+  }
+  .nav_courses p,
+  .nav_home p,
+  .login p {
+    font-size: 14px;
+  }
+}
+
+/* Styles for average computer screens (1024px to 1280px) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .nav_name h1 {
+    font-size: 20px;
+  }
+  .nav_courses p,
+  .nav_home p,
+  .login p {
+    font-size: 16px;
+  }
+}

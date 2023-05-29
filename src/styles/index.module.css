@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+    position: 100%;
+    background-color:rgb(236, 191, 191)
+}
+
+.languageFlags {
+    display: flex;
+}
+.languageFlagsColumn {
+    flex-direction: column
+}

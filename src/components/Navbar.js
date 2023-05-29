@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { useTranslation } from 'next-i18next';
-import styles from './Navbar.module.css'
+import styles from './styles/Navbar.module.css'
 import Image from 'next/image'
 import useAuth from '../hooks/useAuth'
 import { useState, useEffect } from 'react'
@@ -9,6 +9,7 @@ const Navbar = ({user}) => {
   const { isLoggedIn,logout, isAdmin} = useAuth()
   console.log(isAdmin)
   useEffect(() => {
+    console.log(sessionStorage.getItem('title'))
     return 
   },[isLoggedIn, logout])
   

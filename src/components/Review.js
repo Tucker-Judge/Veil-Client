@@ -1,4 +1,4 @@
-import styles from './Review.module.css'
+import styles from './styles/Review.module.css'
 
 function Review({reviewed}) {
     return (

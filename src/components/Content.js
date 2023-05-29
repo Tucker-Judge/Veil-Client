@@ -2,7 +2,7 @@
 import nextCookies from 'next-cookies'
 import useAuth from '../hooks/useAuth'
 import { useRouter } from 'next/router'
-import styles from './Content.module.css'
+import styles from './styles/Content.module.css'
 // axios
 import axios from 'axios';
 

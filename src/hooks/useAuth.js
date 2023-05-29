@@ -52,7 +52,7 @@ const useAuth = () => {
         setIsLoggedIn(true);
       }
     } catch (error) {
-      console.error('Invalid email or password');
+      throw error
     }
   };
 

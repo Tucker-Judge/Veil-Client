@@ -1,0 +1,94 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    max-width: 25%;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom:75px;
+    text-align: center;
+    border: black solid;
+    border-radius: .5rem;
+
+}
+.form input {
+    margin: auto;
+    width: 80%;
+    height: 20px;
+    margin-top: 10px;
+    padding: 3px 5px;
+    border-radius: .1rem;
+}
+.form button {
+    max-width: 100px;
+    align-self: center;
+}
+.form label {
+    margin-right:30px;
+    margin-top:25px;
+    margin-left:30px;
+    background-color: rgb(103, 159, 255);
+    text-align: center;
+    /* padding-left: 3px; */
+    font-size: 1.1rem;
+    background-size: 1rem;
+}
+.form button:last-child[type='submit'] {
+    max-width: 95%;
+    width:84%;
+    align-self: center;
+    margin-bottom:10px;
+    margin-top: 10px;
+    background-color:rgb(233,240,253);
+    border-radius: 6px;
+    font-size:medium;
+    padding: 3px 0px
+    /* padding-bottom:5px; */
+    /* text-align: center; */
+} 
+
+
+.afterForm a{
+    background-color: rgb(142, 142, 255);
+    /* text-decoration:underline; */
+    cursor: pointer;
+}
+.login a {
+    text-decoration: none;
+}
+.form select {
+    max-width: 30%;
+    align-self: center;
+
+}
+.form input:focus {
+    box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.4);
+    outline: none;
+}
+.coolcola {
+    background-color: rgb(233,240,253)
+}
+.jadenSmith {
+    position: absolute;
+    right: 30px;
+    top: 62%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 2px 5px;
+}
+
+.doesthiswork {
+    position: relative;
+    /* width:fit-content; */
+    /* margin:auto;    */
+} 
+/* .form input {
+    padding-right: 5px;
+}*/
+.form input[type='password']{
+    font-size:large;
+}
