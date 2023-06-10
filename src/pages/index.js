@@ -7,6 +7,7 @@ import times from 'lodash.times'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/index.module.css'
+import Image from 'next/image'
 function Home() {
   const {t} = useTranslation('common')
   const [showPopup, setShowPopup] = useState(false) //
@@ -28,12 +29,29 @@ function Home() {
         <p>{t('title')}</p>
         <p>Hello je suis la</p>
 
+        <div className={styles.flagIntro}>
         <div className={styles.languageFlags}>
-          <p>Flag 1</p>
-          <div className={styles.languageFlagsColumn}>
-            <p>Flag 2</p>
-            <p>Flag 3</p>
-            
+          <Image src='/germany.png' alt='germany flag' width={200} height={110}/>
+          <Image src='/i speak american how bout u.png' alt='germany flag' width={200} height={110}/>
+          <Image src='/Je parle le seul langue de le monde.png' alt='germany flag' width={200} height={110}/>
+        </div>
+        <div className={styles.languageSpiel}>
+            <p>At our platform, we celebrate the diversity of our user base and understand the importance of catering to their unique needs. It is with this in mind that we proudly offer our content in three key global languages - English, French, and German.</p>
+        </div>
+        </div>
+        <div className={styles.sentenceShow}>
+          <div className={styles.examples}>
+            <p>Coffee Shop</p>
+            <p>example sentence</p>
+          </div>
+          <p>Learn Sentences for general interactions as well as specific</p>
+        </div>
+        <div className={styles.chatGpt}>
+          <div className={styles.chatShowcase}>
+            <p>Practice </p>
+          </div>
+          <div className={styles.chatMessage}>
+            <p> Practice with chatGpt speaking on typing ur language. Get the ability to be corrected on sentences that you speak or type.</p>
           </div>
         </div>
         <p>People love Veil</p>

@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import styles from './styles/Login.module.css';
+import styles from '../styles/Login.module.css';
 import { useTranslation } from 'next-i18next';
 import useAuth from '../hooks/useAuth';
 import Image from 'next/image'

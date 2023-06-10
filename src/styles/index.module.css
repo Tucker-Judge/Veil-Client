@@ -1,12 +1,52 @@
 .container {
     width: 100%;
-    position: 100%;
-    background-color:rgb(236, 191, 191)
+    height: 100vh;
+    background-color:rgb(236, 191, 191);
 }
 
 .languageFlags {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3, 1fr);
+    max-width:42%;
+    margin-left: 20px;
+    /* background-color: blue; */
+}
+.languageFlags img:nth-child(1) {
+    grid-row: 3;
+    grid-column: 1;
+    color:rgb(128, 0, 0);
+    background-color: white;
+}
+.languageFlags img:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2;
+    color:rgb(128, 0, 0);
+    background-color: white;
+}
+.languageFlags img:nth-child(3) {
+    grid-row: 3;
+    grid-column: 3;
+    color:rgb(128, 0, 0);
+    background-color: white;
 }
 .languageFlagsColumn {
     flex-direction: column
+}
+.flagIntro {
+    display: flex;
+}
+.languageSpiel {
+    margin: 0px 50px;
+    justify-content: center;
+}
+.sentenceShow {
+    display: inline-flex;
+    margin-left: 50px;
+}
+.examples {
+    width:40%;
+    display: inline-flex;
+    gap: 40px;
+    margin-right: 25vw;
 }

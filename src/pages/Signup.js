@@ -95,7 +95,7 @@ function handleType(stateName){
   }
 }
   return (
-    <>
+    <div className={styles.container}>
     <form className = {styles.form} onSubmit={handleSubmit}>
       <label>Username</label>
         <input
@@ -131,7 +131,7 @@ function handleType(stateName){
           {type === 'password' ? <FontAwesomeIcon icon={faEye}/> : <FontAwesomeIcon icon={faEyeSlash}/>}
         </button>
       </div>
-      <label>Verify Password</label>
+      <label>Re-enter password</label>
       <div className={styles.doesthiswork}>
         <input
           type={confirmType}
@@ -163,7 +163,7 @@ function handleType(stateName){
     <div className = {styles.login}>
       <p>Already have an account? <Link href="/login">Sign in</Link></p>
     </div>
-          </>
+          </div>
 
   );
 }

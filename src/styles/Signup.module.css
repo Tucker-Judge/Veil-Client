@@ -10,7 +10,11 @@
     text-align: center;
     border: black solid;
     border-radius: .5rem;
-
+    border-width: .01rem;
+    border-color:rgba(0, 0, 0, 1.0)
+}
+.form:hover {
+    border-color: rgba(0,0,0,.5)
 }
 .form input {
     margin: auto;
@@ -31,7 +35,7 @@
     background-color: rgb(103, 159, 255);
     text-align: center;
     /* padding-left: 3px; */
-    font-size: 1.1rem;
+    font-size: 1.0rem;
     background-size: 1rem;
 }
 .form button:last-child[type='submit'] {
@@ -50,7 +54,8 @@
 
 
 .afterForm a{
-    background-color: rgb(142, 142, 255);
+    color: rgb(62, 62, 248);
+    
     /* text-decoration:underline; */
     cursor: pointer;
 }
@@ -83,12 +88,15 @@
 
 .doesthiswork {
     position: relative;
-    /* width:fit-content; */
-    /* margin:auto;    */
 } 
-/* .form input {
-    padding-right: 5px;
-}*/
-.form input[type='password']{
-    font-size:large;
+
+.coolcola[type='password'] {
+    font-size: large;
+}
+
+.afterForm, .login {
+    text-align:center;
+}
+.container {
+    min-height: 77vh;
 }

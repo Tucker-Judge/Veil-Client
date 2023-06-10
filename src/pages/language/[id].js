@@ -1,5 +1,5 @@
 // component imports
-import Chatbot from '../../components/Chatbot';
+// import Chatbot from '../../components/Chatbot';
 import Review from '../../components/Review';
 import Content from '../../components/Content';
 
@@ -7,9 +7,14 @@ import Content from '../../components/Content';
 import nextCookies from 'next-cookies'
 import axios from 'axios'
 import {useRouter} from 'next/router'
-
-// css module
 import styles from './Home.module.css'
+
+import dynamic from 'next/dynamic';
+const Chatbot = dynamic(
+  () => import('../../components/Chatbot'),
+  { ssr: false }
+);
+
 
 function Home({types,language,reviewed}) {
     const router = useRouter()
@@ -17,11 +22,15 @@ function Home({types,language,reviewed}) {
     console.log(language)
     console.log(types)
   return (
-    <div>
-      <h1>Home</h1>
+    <div className={styles.homeContainer}>
+      {/* <h1>Home</h1> state value of clicked*/}
       <div className={styles.container}>
-      
+      <ul className={styles.menu}>
+        <li>Chatbot</li>
+        <li>Short Stories</li>
+      </ul>
       <Chatbot />
+      {/* <ShortStories /> */}
       <Content id={id} types={types.data} meta={types.meta} />
       </div>
       <Review reviewed={reviewed}/>

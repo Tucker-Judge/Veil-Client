@@ -1,4 +1,24 @@
 .container {
     display: flex;
-    padding: 6rem
+    padding: 6rem;
+}
+
+.putTheMoneyInTheBag {
+    display: flex;
+}
+.putTheMoneyInTheBag select{
+    margin: auto;
+    height: 30px;
+    margin-left: 20px;
+    margin-right: 40px;
+    font-size: medium;
+}
+.putTheMoneyInTheBag input { 
+    margin: auto;
+    height: 30px;
+    margin-left: 20px;
+    font-size: medium;
+}
+.ughh {
+    text-align:center;
 }

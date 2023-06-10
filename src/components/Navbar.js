@@ -9,7 +9,7 @@ const Navbar = ({user}) => {
   const { isLoggedIn,logout, isAdmin} = useAuth()
   console.log(isAdmin)
   useEffect(() => {
-    console.log(sessionStorage.getItem('title'))
+    if(sessionStorage.getItem('title')) console.log(sessionStorage.getItem('title'))
     return 
   },[isLoggedIn, logout])
   

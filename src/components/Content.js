@@ -46,10 +46,10 @@ function Content({ id, types, meta }) {
   }
 
   return (
-    <div className={styles.main_container}>
+    <div className={styles.col}>
       <h2>Content for {id}</h2>
       {titles.length > 0 && (
-      <div>
+      <div className={styles.aside}>
           {titles.map((title) => (
             <div key={title.id}>
               <Link href={`/language/study/${title.id}`}>
@@ -64,7 +64,7 @@ function Content({ id, types, meta }) {
           </div>
           )}
       {titles.length === 0 && (
-        <div>
+        <div className={styles.aside}>
           {types.map((type) => (
             <div onClick={() => setSelectedCardType(type.card_type)} key={type.id}>
               <p>{type.card_type}</p>
@@ -80,6 +80,16 @@ function Content({ id, types, meta }) {
         </div>
       )}
     </div>
+  //   <div class="col-3 col-s-12">
+  //   <div class="aside">
+  //     <h2>What?</h2>
+  //     <p>Chania is a city on the island of Crete.</p>
+  //     <h2>Where?</h2>
+  //     <p>Crete is a Greek island in the Mediterranean Sea.</p>
+  //     <h2>How?</h2>
+  //     <p>You can reach Chania airport from all over Europe.</p>
+  //   </div>
+  // </div>
   );
   
 }
