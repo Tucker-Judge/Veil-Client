@@ -1,38 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :sparkles: Veil-Client :sparkles:
 
-## Getting Started
+Welcome to the **Veil-Client** repository! :tada: Deployment is coming soon, but for now, please follow the instructions below to deploy the client and server yourself.
 
-First, run the development server:
+![Veil Logo](https://path/to/veil-logo.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Veil** is an *amazing*, **interassante**, and *easy-to-use* learning platform that ensures a tested curriculum and seamless growth in communication between cultures. :rocket:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :bookmark_tabs: Table of Contents
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [**Prerequisites**](#prerequisites)
+- [**Installation**](#installation)
+- [**Usage**](#usage)
+- [**Contribution**](#contribution)
+- [**License**](#license)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Prerequisites
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Before you begin, ensure that you have met the following requirements:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- You have a working installation of `Node.js` (version 14.x or higher) and `npm` (version 6.x or higher).
+- You have a basic understanding of JavaScript and web development concepts.
 
-## Learn More
+## Installation
 
-To learn more about Next.js, take a look at the following resources:
+To install **Veil-Client**, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+git clone https://github.com/Tucker-Judge/Veil-Client.git
 
-## Deploy on Vercel
+2. Change to the project directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+cd Veil-Client
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Install the required dependencies:
+
+npm install
+
+4. Build the project:
+
+npm run build
+
+## Usage
+
+After installing **Veil-Client**, you can start using it by following these steps:
+
+1. Deploy the server component by following the instructions in the [Veil-Server](https://github.com/Tucker-Judge/Veil) repository.
+
+2. **Optional** -- Deploy the AI technology by following the instructions in the [Chatbot](https://github.com/Tucker-Judge/Chatbot) repository
+3. Start the client by running:
+ npm start
+4. Access the Veil-Client in your browser by navigating to `http://localhost:3002`.
+
+## Contribution
+
+If you'd like to contribute to **Veil-Client**, feel free to submit a pull request or open an issue to discuss your ideas.
+
+## License
+
+**Veil-Client** is released under the [MIT License](https://opensource.org/licenses/MIT).
