@@ -6,18 +6,20 @@ import styles from '../styles/Cms.module.css'
 // import usePersistentState from '@/hooks/usePersistentState'
 
 function CMS(){
+    // Top of page
     const [language, setLanguage] = useState("")
     const [type, setType] = useState([])
-    const [backArr, setBackArr] = useState([])
     const [translationAdded, setTranslationAdded] = useState(1)
+
+    // unused wont delete anxiety
+    // const [backArr, setBackArr] = useState([])
+    // const [currLanguage, setCurrLanguage] = useState('')
     
-    const[frontInput, setFrontInput] = useState("")
+    const [frontInput, setFrontInput] = useState("")
     const [translations, setTranslations] = useState([Object.keys(cardTypes)[0]])
-    // custom hook for session storage
     const [backInputs, setBackInputs] = useState([''])
     const [title, setTitle] = useState([])
     const [frontArr, setFrontArr] = useState([])
-    const [currLanguage, setCurrLanguage] = useState('')
 
     const {getAuthHeaders} = useAuth()
 

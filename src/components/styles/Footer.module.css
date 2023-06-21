@@ -1,0 +1,78 @@
+.footerContainer {
+    display: flex;
+    justify-content: space-around;
+    background-color: #333;
+    color: #fff;
+    padding: 2em 0;
+    width: 100%;
+    height: 12rem;
+  }
+  
+  .footerSection {
+    flex: 1;
+    padding: 0 1em;
+  }
+  
+  .footerSection h4 {
+    margin-bottom: 1em;
+  }
+  
+  .footerSection ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .footerSection ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footerSection a {
+    display: inline-block;
+    margin: 0.5em 0;
+  }
+  .footerSectionImages {
+    width: 30px;
+    height: 30px;
+    margin-left: 1vw;
+    overflow: hidden;
+  }
+  .whatevaa {
+    width: 28px;
+    height: 28px;
+  }
+  .footerSectionLastImage {
+    overflow: hidden;
+  }
+  
+  .copyrightSection {
+    text-align: center;
+    padding: 1em;
+    background-color: #222;
+    color: #bbb;
+    height: fit-content
+  }
+  
+  .copyrightSection p {
+    margin: 0;
+  }
+  .circleCrop {
+    width: 30px;
+    /* aspect-ratio: 1 / 1; */
+    height: 30px; /* Ensure height and width are same to get a circle */
+    border-radius: 50%; /* Make it a circle */
+    overflow: hidden; /* Hide the parts of the image that fall outside the circle */
+    display: flex;
+    justify-content: center; /* These center the image in the circle, if it's not a square image */
+    /* align-items: center;  */
+  }
+  
+  .circleCrop img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+  
+
+  

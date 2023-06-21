@@ -35,7 +35,7 @@ function Home() {
         <div className={styles.signupContainer}>
           <div className={styles.signupImage1}><Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/></div>
       <div className = {styles.signup}>
-      {/*<Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/> */}
+      <Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/>
         <p>Have a desire to travel or get closer to your culture? </p>
         <p>Maybe get even better at karaoke with some extra lungs practice trying to speak French Have a desire to travel? Start a language new or old and discover a whole new world</p>
         <p>Bon courage!</p>
