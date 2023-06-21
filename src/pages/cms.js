@@ -205,14 +205,14 @@ return (
                 )}
                 </div>
                 <h2>Back Content</h2>
-                        <textarea defaultValue={backInputs[index]}onChange={(e)=> handleBackInputChanged(index, e)} onBlur= {() => handleBack(index)} />
-                        {index >= translationAdded-1 && (
-                            <>
-                        <br/>
-                        <button onClick={handleSubmit}>Submit</button>
-                            </>
-                        )}
-                        </div>
+                    <textarea defaultValue={backInputs[index]}onChange={(e)=> handleBackInputChanged(index, e)} onBlur= {() => handleBack(index)} />
+                    {index >= translationAdded-1 && (
+                        <>
+                    <br/>
+                    <button onClick={handleSubmit}>Submit</button>
+                        </>
+                    )}
+                    </div>
                     )
                 })}
             </div>

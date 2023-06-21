@@ -3,20 +3,38 @@ import { useState } from 'react'
 function Review({reviewed}) {
   console.log(reviewed)
   const [selected, setSelected] = useState(null)
-  console.log(selected)
     return (
       <div className={styles.container}>
-        <h2 className={styles.header}>Review</h2>
+        <ul className = {styles.header}>
+          <li>N</li>
+          <li>Type</li>
+          <li>Title</li>
+          <li>Cont.</li>
+        </ul>
         <div className={styles.grid_reviews}>
-         {!selected ? reviewed.map((review, index) => {
+         {selected === null ? reviewed.map((review, index) => {
           return (
-            <div onClick={()=> setSelected(index)} key = {review.id} className={styles.reviews}>
-              <p>{review.review_count}</p>
-              <p>{review.card_type}</p>
-              <p>{review.title}</p>
-            </div>
+            <ul onClick={()=> setSelected(index)} key = {review.id} className={styles.reviews}>
+              <li>{review.review_count}</li>
+              <li>{review.card_type}</li>
+              <li>{review.title}</li>
+              <li><button className={styles.listBtn}>
+                cont...</button></li>
+            </ul>
           )
-        }): <p onClick={()=> setSelected(null)}>{reviewed[selected].id}</p>
+        }): <div>
+          <p onClick={()=> setSelected(null)}>X</p>
+          {reviewed[selected].flashcards.map((card, index)=> {
+            return (
+              <div key={index}>
+              <p>{card.front}</p>
+              <p>{card.back}</p>
+              </div>
+              )
+          })}
+        
+        
+        </div>
       }
         </div>
       </div>

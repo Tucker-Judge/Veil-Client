@@ -1,10 +1,19 @@
 import styles from './styles/Chatbot.module.css';
 import { useState, useEffect, useRef } from 'react'
-import 'regenerator-runtime/runtime'
-import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition';
 import axios from 'axios'
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faMicrophone,faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
+// below is valid and required for the chatbot component to work
+import 'regenerator-runtime/runtime'
+// my apologies
+
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
+
+// !!!!!!!!!!!!!!!!!!!!!!!
+// must cache soon!
+// !!!!!!!!!!!!!!!!!!!!!!!
+
 function Chatbot() {
   if(typeof window !== 'undefined') {
 // first message can be a prompt taken from json file
@@ -15,7 +24,8 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const [language, setLanguage] = useState()
   const [toggle, setToggle] = useState(false)
-  const textAreaRef = useRef("10rem")
+  const [error, setError] = useState('')
+  
   const {
     transcript,
     resetTranscript,
@@ -26,7 +36,7 @@ function Chatbot() {
     if (!browserSupportsSpeechRecognition) {
     return (
       <div>
-          no... are you on fucking bing rn?
+          no... are you on bing rn?
         </div>
       )
   }
@@ -61,8 +71,20 @@ function Chatbot() {
       elapsedTranscriptionTime += 5000
     }, 5000)
   }
+
+  // Legally obligated to say that nothing it says matters
   const apiRequest = () => {
-    axios.post('/api/chat', {msg, prevMessages})
+    console.log('u rang??')
+    axios.post('http://localhost:3002/api/chat', {msg, prevMessages, messages})
+    .then((response) => {
+      console.log(response.data)
+      setMsg('')
+      setPrevMessages(response.data.prevMessages)
+      setMessages(response.data.messages)
+    })
+    .catch((err) => {
+      throw err
+    })
   }
   return (
     <div className={styles.container}>
@@ -75,28 +97,21 @@ function Chatbot() {
       </div>
 
       <div className={styles.sendChat}>
-        <div ref={textAreaRef} style={{height: `${textAreaRef.current}`}} className = {styles.manageChat}>
-        <button className={styles.regenerate}>⟳ Regenerate Response</button>
+        
+        <button className={styles.regenerate} onClick={(()=> console.log("FUCK"))}>⟳ Regenerate Response</button>
         <textarea
-   
-    style={{height: `${textAreaRef.current}`}}
-    value = {msg}
-    onChange={(e)=> {
-      setMsg(e.target.value)
-      
-      let newHeight = Math.max(e.target.scrollHeight, parseInt(textAreaRef.current.style.height, 10)) / 16;
-  textAreaRef.current.style.height = `${newHeight}rem`;
-    }}
+    value = {transcript ? transcript : msg}
+    onChange={(e)=>setMsg(e.target.value)}
     type="text"
 />
-        </div>
+        
       {msg ? 
-      <button className={styles.icons} onClick = {apiRequest}>⇪</button> 
-      : <>
+      <button className={styles.icons} onClick = {() => apiRequest()}>⇪</button> 
+      : 
       <FontAwesomeIcon className= {styles.microphone} size={"2x"} onClick = {handleMessageSpeech} icon={faMicrophone} />
-      </>
       }
         </div>
+        <button onClick={()=> console.log('just do itttt')}>{error}</button>
     </div>
   )
       }

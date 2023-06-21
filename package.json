@@ -29,6 +29,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-speech-recognition": "^3.09.0",
     "redis": "^4.6.5",
-    "regenerator-runtimeruntime": "^0.13.11"
+    "regenerator-runtime": "^0.13.11",
+    "express-rate-limit": "6.7.0",
+    "express-slow-down": "1.6"
   }
 }

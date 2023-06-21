@@ -115,20 +115,18 @@ function LoginPage({ facts, random}) {
             <p className={styles.error}>{errorMessage}</p>
             )}
         </form>
-              <div>
-                <p><span>---- or log in with ----</span></p>
+              <p>---- {t('OrLogInWith')} ----</p>
+    
                 <div className = {styles.OAuth}>
-                  <button><Image height = "50" alt = "Apple Logo"width="50"src = "/Logo - SIWA - Left-aligned - Black - Medium.svg"/></button>
-                  <button><Image height = "50" alt = "Apple Logo"width="50"src = "/btn_google_signin_light_focus_web.png"/></button>
-                  <button><Image height = "50" alt = "Apple Logo"width="50"src = "/f_logo_RGB-Blue_58.png"/></button>
+                  <button onClick={(() => console.log("ughhhhh"))}><Image height = "100" alt = "Apple Logo"width="100"src = "/Logo - SIWA - Left-aligned - Black - Medium.svg"/></button>
+                  <button onClick={(() => console.log('whateva'))}><Image height = "50" alt = "Facebook Logo"width="50"src = "/f_logo_RGB-Blue_58.png"/></button>
                 </div>
-              </div>
             </>
           )}
 
         {/* End of Login Form */}
 
-        <div className={styles.facts}>
+        {/* <div className={styles.facts}>
           <p>{t("FunFacts")}</p>
           {currentFact ? (
             <>
@@ -141,7 +139,7 @@ function LoginPage({ facts, random}) {
               <p>{facts[random].description}</p>
             </>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
@@ -172,8 +170,6 @@ export async function getServerSideProps({ req }) {
   const facts = JSON.parse(fileContents);
 
   let random = Math.floor(Math.random() * facts.length);
-
-  
   return {
     props: {
       facts,

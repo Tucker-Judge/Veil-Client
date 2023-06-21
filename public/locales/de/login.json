@@ -4,8 +4,7 @@
     "RememberMe": "Angemeldet bleiben",
     "ForgotPassword": "Passwort vergessen?",
     "Login": "Anmelden",
-    "Show": "Zeigen",
-    "Hide": "Verbergen",
+    "OrLoginWith": "sillyPassvord",
     "FunFacts": "Spaß Fakten",
     "InvalidEmailOrPassword": "Ungültige E-Mail oder Passwort"
   }

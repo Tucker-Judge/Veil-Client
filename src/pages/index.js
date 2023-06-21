@@ -9,7 +9,7 @@ import { faStar, faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-i
 import styles from '../styles/index.module.css'
 import Image from 'next/image'
 function Home() {
-  const {t} = useTranslation('common')
+  const {t} = useTranslation('index')
   const [showPopup, setShowPopup] = useState(false) //
 
   useEffect(() => {
@@ -22,53 +22,79 @@ function Home() {
     setShowPopup(false)
   }
   return (
-    <div className = {styles.container}>
-      <Link href="/Signup">
-      <button> Sign up! </button>
-      </Link>
-        <p>{t('title')}</p>
-        <p>Hello je suis la</p>
+    // cant wait for tailwind life ripssss
+    <div className={styles.adsContainer}>
+      <div style={{ margin: "0", left: 0, width: "13vw", top: 0, bottom: 0, position: 'relative', backgroundColor: "white"}}><Image style={{width: "13vw"}} width="150" height="400" src = "/advertisement.jpeg"/></div>
+    
+      <div className = {styles.container}>
+      {/* below fixes a bug im not questioning it rn */}
+      {/* bug fixed yaatta */}
+      {/* <br/> */}
+      <div style={{margin: "0px"}}>
+
+        <div className={styles.signupContainer}>
+          <div className={styles.signupImage1}><Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/></div>
+      <div className = {styles.signup}>
+      {/*<Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/> */}
+        <p>Have a desire to travel or get closer to your culture? </p>
+        <p>Maybe get even better at karaoke with some extra lungs practice trying to speak French Have a desire to travel? Start a language new or old and discover a whole new world</p>
+        <p>Bon courage!</p>
+        <p className={styles.lastChild}>↯</p>
+          <div className={styles.signupButton}>
+            <Link href="/Signup">
+              <button className={styles.button}> Learn now </button>
+            </Link>
+          </div>
+      </div>
+      <div className={styles.signupImage}><Image src={"/leonardo-toshiro-okubo-jBSTNenQxok-unsplash.jpg"} height={100} width={100}/></div>
+        </div>
+      </div>
 
         <div className={styles.flagIntro}>
-        <div className={styles.languageFlags}>
-          <Image src='/germany.png' alt='germany flag' width={200} height={110}/>
-          <Image src='/i speak american how bout u.png' alt='germany flag' width={200} height={110}/>
+        <div className={styles.flagContainer}>
+
+        <h1>The Veil Method</h1>
+        <h3>Our Method...</h3>
+        <div className={styles.flagIntroSecond}>
+          <div>
+          <Image src='/germany.png' alt='germany flag' width={200} height={100}/>
+              <h2 className={styles.imageH}>Explore a new language</h2>
+            <p>
+              Learn everything you need to have real world conversations - from vocab words to culture. 10 minutes a day is all it takes.
+            </p>
+            <p>this willl be an image</p>
+          </div>
+          <div>
           <Image src='/Je parle le seul langue de le monde.png' alt='germany flag' width={200} height={110}/>
-        </div>
-        <div className={styles.languageSpiel}>
-            <p>At our platform, we celebrate the diversity of our user base and understand the importance of catering to their unique needs. It is with this in mind that we proudly offer our content in three key global languages - English, French, and German.</p>
-        </div>
-        </div>
-        <div className={styles.sentenceShow}>
-          <div className={styles.examples}>
-            <p>Coffee Shop</p>
-            <p>example sentence</p>
+          <h2 className={styles.imageH}>Flexible lesson plans</h2>
+            <p>blah blah blah blah</p>
+            <p>this willl be an image</p>
           </div>
-          <p>Learn Sentences for general interactions as well as specific</p>
-        </div>
-        <div className={styles.chatGpt}>
-          <div className={styles.chatShowcase}>
-            <p>Practice </p>
-          </div>
-          <div className={styles.chatMessage}>
-            <p> Practice with chatGpt speaking on typing ur language. Get the ability to be corrected on sentences that you speak or type.</p>
+          <div>
+          <Image src='/i speak american how bout u.png' alt='germany flag' width={200} height={75}/>
+          <h2 className={styles.imageH}>More ways to learn</h2>
+            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
+            <p>this willl be an image</p>
           </div>
         </div>
-        <p>People love Veil</p>
-        <p>MILLIONS OF 5-STAR REVIEWS</p>
-        {/* <ReviewsCarousel/> */}
+        </div>
+        </div>
+        <div className={styles.carousel}>
+          <h1>People love Veil</h1>
+          <h3>t("MILLIONS OF 5-STAR REVIEWS")</h3>
+          <ReviewsCarousel/>
+        </div>
 
        {showPopup && 
-        <div className="popup">
-        <div className="popup-content">
+        <div className={styles.popupContent}>
           <h2>Cookie Consent</h2>
           <p>This website uses necessary cookies to ensure you get the best experience. By continuing to use the site, you agree to our use of cookies.</p>
           <button onClick={acceptCookies}>Accept all Cookies</button>
           <button onClick={acceptCookies}>Necessary Cookies only</button>
           <a href="terms.html" target="_blank">View Terms and Conditions</a>
         </div>
-      </div>
         }
+        </div>
         </div>
 
   )
@@ -132,50 +158,46 @@ function ReviewsCarousel() {
           },
       ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-      const intervalId = setInterval(() => {
+        const [currentIndex, setCurrentIndex] = useState(0);
+      
+        useEffect(() => {
+          const slideInterval = setInterval(updateIndex, 2000);
+          return () => clearInterval(slideInterval);
+        }, [reviews.length]);
+      
+        function updateIndex() {
           setCurrentIndex((prevIndex) => {
-              if(prevIndex === reviews.length - 1) return 0;
-              return prevIndex + 1;
+            const isLastReview = prevIndex === reviews.length - 1;
+            return isLastReview ? 0 : prevIndex + 1;
           });
-      }, 2000); // adjust this value as needed
-
-      return () => {
-          clearInterval(intervalId);
-      };
-  }, [reviews.length]);
-
-  const updatedReviews = [...reviews.slice(currentIndex, reviews.length), ...reviews.slice(0, currentIndex)];
-
-  return (
-      <div style={{ overflow: 'hidden', display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <div
-              style={{
-                  display: 'flex',
-                  transition: 'transform 1s',
-                  transform: `translateX(-${100 / reviews.length}%)`,
-              }}
-          >
+        }
+      
+        const updatedReviews = [
+          ...reviews.slice(currentIndex, reviews.length),
+          ...reviews.slice(0, currentIndex),
+        ];
+      
+        return (
+          <div className={styles.carouselContainer}>
+            <div className={styles.updatedReviews}>
               {updatedReviews.map((review, index) => (
-                  <div
-                      key={review.id}
-                      style={{
-                          flex: '0 0 auto',
-                          width: `${100 / reviews.length}%`,
-                          opacity: index === 0 ? 1 : 0.5,
-                          transition: 'opacity 1s',
-                      }}
-                  >
-                      {/* <h3>{review.name}</h3> */}
-                      <FontAwesomeIcon key={index} icon={faQuoteLeft} />
-                      {/* <FontAwesomeIcon icon={faQuoteRight} /> */}
-                      <p>{review.text}</p>
-                      <p>{review.name}  |  Excellent  {times(5,(i) => <FontAwesomeIcon key={i} icon={faStar} />)}</p>
-                  </div>
+                <ReviewCard review={review} index={index} currentIndex={currentIndex} key={review.id} />
               ))}
+            </div>
           </div>
-      </div>
-  );
-}
+        );
+      }
+      
+      function ReviewCard({ review }) {
+        return (
+          <div className={styles.whatevaa}>
+            <FontAwesomeIcon className={styles.carouselFontIcon} icon={faQuoteLeft} />
+            <p className={styles.text}>{review.text} </p>
+            <span>
+            <p>{review.name}</p> 
+            <p className = {styles.stars}>_| Excellent {times(5,(i) => <FontAwesomeIcon key={i} icon={faStar} />)}</p>
+            </span>
+          </div>
+        );
+      }
+      

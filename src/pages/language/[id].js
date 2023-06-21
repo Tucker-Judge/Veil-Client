@@ -9,6 +9,8 @@ import axios from 'axios'
 import {useRouter} from 'next/router'
 import styles from './Home.module.css'
 
+import { LanguageContext } from '@/context/Language';
+import { useContext } from 'react'
 import dynamic from 'next/dynamic';
 const Chatbot = dynamic(
   () => import('../../components/Chatbot'),
@@ -19,7 +21,9 @@ const Chatbot = dynamic(
 function Home({types,language,reviewed}) {
     const router = useRouter()
     const { id } = router.query
+    const {lang, setLang} = useContext(LanguageContext)
     console.log(language)
+    console.log(lang)
     console.log(types)
   return (
     <div className={styles.homeContainer}>
@@ -43,9 +47,11 @@ export default Home;
 export async function getServerSideProps(ctx){
   const cookies = nextCookies(ctx)
   const language = ctx.query
+
   console.log(language)
 const authTokens = cookies.authTokens ? cookies.authTokens : {};
 
+// make into value i bring in as middleware
 const authHeaders = {
   'access-token': authTokens['access-token'],
   client: authTokens.client,

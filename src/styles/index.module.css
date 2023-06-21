@@ -1,52 +1,237 @@
 .container {
-    width: 100%;
-    height: 100vh;
-    background-color:rgb(236, 191, 191);
+    width: 87vw;
+    max-width: 87vw;
+    height: fit-content;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.languageFlags {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3, 1fr);
-    max-width:42%;
-    margin-left: 20px;
-    /* background-color: blue; */
-}
-.languageFlags img:nth-child(1) {
-    grid-row: 3;
-    grid-column: 1;
-    color:rgb(128, 0, 0);
-    background-color: white;
-}
-.languageFlags img:nth-child(2) {
-    grid-row: 1;
-    grid-column: 2;
-    color:rgb(128, 0, 0);
-    background-color: white;
-}
-.languageFlags img:nth-child(3) {
-    grid-row: 3;
-    grid-column: 3;
-    color:rgb(128, 0, 0);
-    background-color: white;
-}
-.languageFlagsColumn {
-    flex-direction: column
-}
 .flagIntro {
     display: flex;
 }
+.signupImage img{
+    /* width: fit-content;
+    height: fit-content; */
+    margin: auto;
+    
+}
+.signupImage1 img{
+    /* width: fit-content;
+    height: fit-content; */
+    margin: auto;
+}
 .languageSpiel {
-    margin: 0px 50px;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    height: 45vh;
+    width: 40vw;
+    margin-bottom: 1rem;
+}
+.languageSpiel p {
+    margin: auto;
+    position: relative;
+}
+.languageSpiel p:first-child {
+    right: 1vw;
+}
+.languageSpiel :nth-child(2) {
+    color: blue;
+    right: 20vw
+}
+
+.popupContent{
+    background-color: white;
+    position: absolute;
+    left: 33vw;
+    top: 30vh;
+    width: 30vw;
+    height: 30vh;
+    padding: 1vw;
+    border: 1px white solid;
+}
+.signup {
+    width: 33.3%;
+    height: fit-content;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding: 1rem;
+    background-color: #00b894;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.signup p {
+    margin: 3vh .8vw;
+    color: black;
+    line-height: 2rem;
+    font-size: large
+}
+.signup p:nth-child(3) {
+    font-size: larger;
+    text-align: center;
+    margin-bottom: 0rem;
+}
+.lastChild {
+    font-size: xx-large;
+    text-align: center;
+}
+
+
+
+.signupContainer {
+    width: 92.3%;
+    /* background-color: rgb(255, 255, 255);; */
+    display: flex;
     justify-content: center;
 }
-.sentenceShow {
-    display: inline-flex;
-    margin-left: 50px;
+.signupImage, .signupImage1 {
+    margin-top: 5vh;
+    margin-bottom: 2vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    width: 33.3%
 }
-.examples {
-    width:40%;
-    display: inline-flex;
-    gap: 40px;
-    margin-right: 25vw;
+.adsContainer {
+    display: flex;
 }
+
+.flagIntroSecond {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+    /* background-color: rgb(255, 255, 255); */
+    gap: 10vw;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+.flagIntroSecond div p {
+    width: 60%;
+    text-align: left;
+    /* margin-top: .2vh; */
+    margin-left: 2vw;
+}
+
+.flagIntroSecond img {
+    justify-content: center;
+    align-self: center;
+    width: 50%;
+    height: 18%;
+    margin: 2vh 0;
+}
+
+.flagIntroSecond div {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 1vh;
+    width: 20vw;
+    height: 50vh;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    border-bottom: 1px solid black
+}
+
+.flagContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    margin: 10vh 0;
+}
+
+.flagContainer h1{
+    text-align: center;
+    font-size: 3rem;
+}
+.flagContainer h3 {
+    text-align: center;
+}
+.imageH {
+    margin-left: 1.5vw;
+    margin-bottom: 0vh;
+}
+.signupButton {
+    width: 100%;
+    /* background-color: #00cec9; */
+    height: fit-content;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 1vh;
+}
+.button {
+    width: fit-content;
+    padding: .5rem;
+    font-size: 1.4rem;
+    align-self: center;
+    border-radius: .7rem;
+    border-color: rgba(0, 184, 148, .8);
+    color: black;
+    background-color: rgba(255, 255, 255, 0.762)
+}
+
+/* Carousel Slider */
+
+.carouselContainer {
+    width: 100%;
+    max-width: 100%;
+    height: 40vh;
+    background-color: white;
+    overflow-x: hidden;
+    display: flex;
+    overflow-x: hidden;
+    justify-content: center;
+}
+.updatedReviews {
+    background-color: rgba(255, 255, 255, 0.34);
+    display: inline-flex;
+    height: 40vh;
+    width: 150%;
+    overflow-x: hidden;
+    justify-content: center;
+}
+
+.text {
+    height: 5vh;
+}
+.whatevaa span {
+    display: flex;
+}
+.whatevaa {
+    background-color: rgba(58, 189, 146, 1);
+    margin: .75vw;
+    padding: 1rem;
+    opacity: .4;
+    
+    /* max-width: 35vw; */
+    width: 150vw;
+    height: 35vh;
+    border-radius: 1rem;
+}
+.whatevaa:nth-child(3){
+    background-color: rgb(255, 129, 129);
+    opacity: 1;
+    /* margin:0 1.2vw; */
+}
+.carousel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: fit-content; */
+    height: fit-content;
+}
+.carouselFontIcon {
+    font-size: 2rem;
+}
+/* Carousel */

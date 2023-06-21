@@ -1,22 +1,27 @@
 import nextCookies from 'next-cookies'
 import Link from 'next/link'
+import { useContext } from 'react'
+import { LanguageContext } from '../context/Language'
+
 function UserLanguages({languages}){
 // if one language reroute to next page
 // page styling will be ads on left and right
 // languages represented by flag images with the text over them
-console.log(languages)
+
+const { lang, setLang } = useContext(LanguageContext)
+console.log(lang)
+
     return (
         <div>
-            <p>nouveau débuts</p>
             {languages.length > 0 ? languages.map((language) => {
                 return (
                 <div key = {language.id}>
-                    <Link href={`/language/${language.id}`}>
+                    <Link onClick = {() => {setLang(language.language)}} href={`/language/${language.id}`}>
                         <p>{language.language}</p>
                     </Link>
                 </div>
                 )
-            }): <p>uh oh looks like something went wrong</p>
+            }): <p>this is the part where you get gaslighted</p>
             }
         </div>
     )

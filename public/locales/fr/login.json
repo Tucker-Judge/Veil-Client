@@ -4,8 +4,7 @@
     "RememberMe": "Se souvenir de moi",
     "ForgotPassword": "Mot de passe oublié ?",
     "Login": "Connexion",
-    "Show": "Montrer",
-    "Hide": "Cacher",
+    "OrLogInWith": "ou connexion avec",
     "FunFacts": "Faits amusants",
     "InvalidEmailOrPassword": "E-mail ou mot de passe invalide"
   }
