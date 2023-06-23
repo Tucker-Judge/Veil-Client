@@ -4,29 +4,41 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100%
-    
+    width: 100%;
+    font-size: 1.5rem;
+    /* margin-top: .5rem; */
   }
 .wrapper {
   position: relative;
-  background-image: url('https://media.istockphoto.com/id/184268876/fr/photo/%C3%A9norme-pile-de-livres-r%C3%A9servez-mur.jpg?b=1&s=612x612&w=0&k=20&c=Mk2jgGaw3aSp4zF6B3yyUDKMs4zx8v70t1lTWTBEQzE=');
-    background-size: cover;
-    backdrop-filter: blur(8px);
+  background-image: url('/bookshelfBg.jpeg');
+  background-size: 100%;
+  background-position: center;
+  backdrop-filter: blur(8px);
+  /* filter: blur(2px); */
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
 }
-  
-
   .form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffeded;
+    background-color: #ffffff;
     padding-top: 20px;
+    margin-top: 0px;
     padding-bottom: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
+    height: 70vh;
     width: 40%;
   }
-  
+  .form h1 {
+    margin-bottom: 1vh;
+  }
+  .form h3 {
+    margin-top: 0px;
+    margin-bottom: 1vh;
+    font-size: 1rem;
+  }
   .input {
     display: flex;
     flex-direction: column;
@@ -34,32 +46,33 @@
     margin-bottom: 10px;
     width: 100%;
   }
-  
   .input label {
     margin-bottom: 5px;
   }
-  
   .input input[type="email"] {
     width: 125%;
-    padding-left: 25px;
-    padding-right: 14px;
-    font-size: 1rem;
+    padding-left: 1.7vw;
+    padding-right: 1.4vw;
+    font-size: 1.5rem;
   }
-  
+  .input input {
+    line-height: 2.5rem;
+  }
 .input input[type="password"],
 .input input[type="text"] {
   width: 125%;
   box-sizing: border-box;
-  padding-right: 40px; 
-  padding-left: 25px;
+  padding-right: 1.4vw; 
+  padding-left: 1.7vw;
   overflow-x: auto;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
   .inputContainer {
     position: relative;
     display: inline-flex;
-    width: 40%;
+    width: 70%;
     align-items: center;
+    height: fit-content;
   }
   .passwordIcon {
     position: absolute;
@@ -68,8 +81,8 @@
     transform: translateY(-50%);
     background: none;
     border: none;
-    cursor: pointer;
-    font-size: 0.8rem;
+    /* cursor: pointer; */
+    font-size: .8rem;
     padding: 2px 5px;
   }
   .showHideButton {
@@ -80,42 +93,54 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 2px 5px;
+    margin-right: .5vw;
   }
-  
+  .showHideButton:first-letter {
+    margin-right: 3px;
+    
+  }
   .forgotPassword {
     font-weight: bold;
-    font-size: .9rem;
+    font-size: .95rem;
+    /* margin-bottom: 0px;
+    margin-top: 0px; */
+    /* margin-left: auto; */
+    /* margin-right: 2em; */
   }
   .forgotPassword:hover {
     color: blue;
   }
   .button {
     margin-top: 10px;
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 255, 0.772);
+    color: white;
+    padding: 5px 10px;
+    font-size:1.5rem;
+  }
+  .button:disabled {
+    color: lightgray;
+    background-color: gray;
+    cursor: not-allowed;
   }
   
-  .error {
-    color: red;
-    margin-top: 10px;
-  }
   
   .facts {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #000;
-  border-radius: 5px;
-  padding: 1rem;
-  margin-top: 2rem;
-  min-height: 200px;
-  width: 50%;
-  text-align: center;
-  color: white;
-  background-color: black;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 2rem;
+    min-height: 200px;
+    width: 50%;
+    text-align: center;
+    color: white;
+    background-color: black;
+  }
   
   .facts p {
     margin-bottom: 10px;
@@ -124,33 +149,56 @@
   .checkboxInput {
     display: flex;
     align-items: center;
+    margin-bottom: 1em;
+    /* margin-left: auto; */
+    /* margin-right: 4em; */
   }
-
+  
+  
   @media (max-width: 768px) {
     .form,
     .facts {
       width: 90%;
     }
   }
-
+  
   .OAuth {
     display: flex;
     padding: 0;
-    margin: 0;
-    width: 50px;
+    /* margin-top: 1em; */
+    /* margin-bottom: 1em; */
+    width: 50vw;
+    height: 10vh;
     text-align: center;
     justify-content: center;
+    align-content: center;
     max-height: 50%;
-  
+    overflow: hidden;
   }
   .OAuth button {
     background-color: white;
     border-style: none;
+    /* margin-bottom: 1vh; */
+    padding: 0px;
+    /* margin: 0px; */
   }
-  .OAuth button:first-child {
-    margin-top: .4rem;
+  .OAuth button:nth-child(2) {
+    padding-right: 8px;
+    padding-left: 3px;
+  }
+  .appleLogo {
+    margin-top: 5.5px;
+    padding-right: 0px;
   }
 
 
+  .error {
+    position: absolute;
+    top: 78.2vh;
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  
   
   

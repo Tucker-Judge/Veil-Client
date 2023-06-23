@@ -29,11 +29,6 @@ function Footer() {
         <a><Image className={styles.whatevaa} src="/Instagram_icon.png" width={30} height={30}/> </a>
         <a href="http://www.facebook.com/yourpage"><Image width={30} height={30} className={styles.footerSectionImages}src="/f_logo_RGB-Blue_58.png" alt="Facebook"/></a>
         <a href="http://www.twitter.com/yourpage"><Image width={30} height={30} className={styles.footerSectionImages} src="/twitterIcon.png" alt="Twitter"/></a>
-        <div className={styles.circleCrop}>
-            <a href="http://www.instagram.com/yourpage">
-                <Image width={45} height={32} className={styles.footerSectionGithubIcon} src="/githubIcon.png" alt="Github"/>
-                </a>
-        </div>
       </div>
       <div className={styles.footerSection}>
         <h4>Contact</h4>

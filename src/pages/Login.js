@@ -60,11 +60,13 @@ function LoginPage({ facts, random}) {
         ):(
           <>
           <form className={styles.form} onSubmit={handleLogin}>
+            <h1>Login</h1>
+            <h3>Welcome Back</h3>
           <div className={styles.input}>
             <label htmlFor="email"></label>
             <div className={styles.inputContainer}>
 
-            <FontAwesomeIcon className={styles.passwordIcon}icon={faEnvelope} />
+            <FontAwesomeIcon style={{height: "1rem", width: "1rem"}} className={styles.passwordIcon}icon={faEnvelope} />
             <input
               id="email"
               type="email"
@@ -80,7 +82,7 @@ function LoginPage({ facts, random}) {
           <div className={styles.input}>
             <label htmlFor="password"></label>
             <div className={styles.inputContainer}>
-            <FontAwesomeIcon className= {styles.passwordIcon}icon={faKey} />
+            <FontAwesomeIcon style={{height: "1rem", width: "1rem"}} className= {styles.passwordIcon}icon={faKey} />
               <input
                 id="password"
                 type={passwordType}
@@ -97,7 +99,7 @@ function LoginPage({ facts, random}) {
               </button>
              
             </div>
-            <p><a className={styles.forgotPassword}>{t("ForgotPassword")}</a></p>
+            <p style={{margin:"10px 0px"}}><a className={styles.forgotPassword}>{t("ForgotPassword")}</a></p>
           </div>
           <div className={styles.checkboxInput}>
             <label htmlFor="remember-me">{t("RememberMe")}:</label>
@@ -111,16 +113,17 @@ function LoginPage({ facts, random}) {
           <button disabled={email.includes('@') && password.length > 0 ? false : true} className={styles.button} type="submit">
             {t('Login')}
           </button>
+              <p style={{marginBottom: "0px"}}>---- {t('OrLogInWith')} ----</p>
+    
+                <div className = {styles.OAuth}>
+                  <button className={styles.appleLogo} type="button" onClick={(() => console.log("ughhhhh"))}><Image height = "68" alt = "Apple Logo" width="50"src = "/Logo - SIWA - Left-aligned - Black - Medium.svg"/></button>
+                  <button type="button" onClick={(() => console.log('whateva'))}><Image height = "32" alt = "Facebook Logo" width="32"src = "/f_logo_RGB-Blue_58.png"/></button>
+                  <button type="button" onClick={(() => console.log('gross'))}><Image height = "45" alt = "Google Logo" width="45"src = "/googleIcon.png"/></button>
+                </div>
           {errorMessage && (
             <p className={styles.error}>{errorMessage}</p>
             )}
         </form>
-              <p>---- {t('OrLogInWith')} ----</p>
-    
-                <div className = {styles.OAuth}>
-                  <button onClick={(() => console.log("ughhhhh"))}><Image height = "100" alt = "Apple Logo"width="100"src = "/Logo - SIWA - Left-aligned - Black - Medium.svg"/></button>
-                  <button onClick={(() => console.log('whateva'))}><Image height = "50" alt = "Facebook Logo"width="50"src = "/f_logo_RGB-Blue_58.png"/></button>
-                </div>
             </>
           )}
 

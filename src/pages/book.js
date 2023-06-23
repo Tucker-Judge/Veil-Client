@@ -36,6 +36,7 @@ function FileUpload() {
       }
     }
     if(str === 'freq') {
+      console.log('at least im trying')
       try {
         const response = await axios.post('http://localhost:3000/test',{
           body: {

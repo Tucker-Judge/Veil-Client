@@ -7,10 +7,8 @@ function UserLanguages({languages}){
 // if one language reroute to next page
 // page styling will be ads on left and right
 // languages represented by flag images with the text over them
-
 const { lang, setLang } = useContext(LanguageContext)
-console.log(lang)
-
+console.log(languages)
     return (
         <div>
             {languages.length > 0 ? languages.map((language) => {
@@ -31,9 +29,9 @@ export default UserLanguages
 export async function getServerSideProps(ctx) {
   // moving on!!!!
   // switch from cookies to grabbing headers from browser
-    const cookies = nextCookies(ctx)
-    const { req } = ctx
-   
+  const cookies = nextCookies(ctx)
+  const { req, res, locale } = ctx
+  // auto routing is probably not necessary but a good thing to know ig....
     const authTokens = cookies.authTokens ? cookies.authTokens : {};
   
     const authHeaders = {
@@ -49,10 +47,12 @@ export async function getServerSideProps(ctx) {
       ...authHeaders
       }});
       const languages = await response.json()
-      // if(languages.length === 1){
-      //   // console.log(languages);
-
-      // }
+      if(languages.length === 1){
+        res.setHeader('Seul', `/${locale}/language/${languages[0].id}`)
+        res.statusCode = 302
+        res.end()
+        return { props: {} }
+      }
     //   filter here
       return {
         props: {
