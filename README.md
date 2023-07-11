@@ -2,7 +2,7 @@
 
 Welcome to the **Veil-Client** repository! :tada: Deployment is coming soon, but for now, please follow the instructions below to deploy the client and server yourself.
 
-![Veil Logo](https://path/to/veil-logo.png)
+![Veil Logo](https://path/to/veil-logo.png) -- imagine this is pretty
 
 **Veil** is an *amazing*, **interassante**, and *easy-to-use* learning platform that ensures a tested curriculum and seamless growth in communication between cultures. :rocket:
 
@@ -47,7 +47,7 @@ After installing **Veil-Client**, you can start using it by following these step
 
 1. Deploy the server component by following the instructions in the [Veil-Server](https://github.com/Tucker-Judge/Veil) repository.
 
-2. **Optional** -- Deploy the AI technology by following the instructions in the [Chatbot](https://github.com/Tucker-Judge/Chatbot) repository
+2. **Optional** -- Deploy the AI technology by following the instructions in the [Chatbot](https://github.com/Tucker-Judge/Chatbot) repository - this is currently not supported! blame open ai for taking away my free dev api calls. scoundrels
 3. Start the client by running:
  npm start
 4. Access the Veil-Client in your browser by navigating to `http://localhost:3002`.
